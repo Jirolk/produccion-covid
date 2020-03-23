@@ -264,7 +264,10 @@ $resultado = mysqli_query($conectar, $consulta);
             <!-- Grid column -->
             <div class="col-md-8 col-12 mt-5">
                 <p style="line-height: 1.7rem">Espero que con estos Datos expuestos, se pueda tener concienca de la
-                    magnitud de esto, cumplan con la cuarentena, no se expongan, cuidense de la mejor manera que sepan, Esto no es una Joda!</p>
+                    magnitud a que nos enfrentamos, cumplan con la cuarentena, no se expongan, 
+                    cuidense de la mejor manera que sepan, Esto no es una Joda! <br>
+                    DIOS LOS BENDIGA ahora y siempre!
+                </p>
             </div>
             <!-- Grid column -->
 
