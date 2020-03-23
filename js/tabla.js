@@ -7,9 +7,9 @@ $(document).ready(function(){
         // }],
         
         // dom:'Bfrtip',
-        // lengthMenu:[
-        //     [7,14,-1]
-        // ],
+        "lengthMenu":[
+            [5,10,20,-1],[5,10,20,"Todos"]
+        ],
         // buttons:[
         //     'pageLength'
         // ],

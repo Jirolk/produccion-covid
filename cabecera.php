@@ -16,7 +16,7 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Reportes de Ministerio
+          Reportes del Ministerio
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <a class="dropdown-item" href="https://www.mspbs.gov.py/dependencias/portal/adjunto/9dffd3-Tableu19.03.2020.pdf" target="_blank">19/03/2020</a>

@@ -72,7 +72,7 @@ $resultado = mysqli_query($conectar, $consulta);
                                 <script type="text/javascript">
                                     var fecha = new Date();
                                     var manana = new Date(fecha.getTime() + 24 * 60 * 60 * 1000);
-                                    document.write("" + manana.getDate() + "/" + manana.getMonth() + "/" + manana.getFullYear());
+                                    document.write("" + manana.getDate() + "/" + (manana.getMonth() + 1) + "/" + manana.getFullYear());
                                 </script>
                             </div>
                         </div>
@@ -167,29 +167,41 @@ $resultado = mysqli_query($conectar, $consulta);
             con más datos sera más acertivo, los datos ingresados pueden
             corroborar con los Reportes vinculados aquí abajo.
         </p>
-        
+
         <hr>
         <div Class="container">
             <div class="row text-center">
                 <div class="col col-lg-4">
                     <h4 class="">Reportes Covid-19</h4>
+
                     <div class="col col-lg-12">
-                        <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/9dffd3-Tableu19.03.2020.pdf" target="_blank"> 19/03/2020</a>
-                        <br>
-                        <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/de735d-Tablero20.03.2020.pdf" target="_blank"> 20/03/2020</a>
-                        <br>
-                        <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/1efbff-Tablerodel21.03.20.pdf" target="_blank"> 21/03/2020</a>
-                        <br>
-                        <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/77c682-Tablerodel22.03.pdf" target="_blank"> 22/03/2020</a>
-                        <br>
+                        <h6 class="text-center">
+                            <a href="https://www.mspbs.gov.py/reportes-covid19.html" target="_blank" rel="noopener noreferrer">
+                                Oficial
+                            </a>
+                        </h6>
+                        <hr>
+
                         <!-- <a href="#">23/03/2020</a> -->
                     </div>
-
+                </div>
+                <div class="col col-lg-4">
+                    <!-- columan de los registros -->
+                    <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/77c682-Tablerodel22.03.pdf" target="_blank"> 22/03/2020</a>
+                    <br>
+                    <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/1efbff-Tablerodel21.03.20.pdf" target="_blank"> 21/03/2020</a>
+                    <br>
+                    <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/de735d-Tablero20.03.2020.pdf" target="_blank"> 20/03/2020</a>
+                    <br>
+                    <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/9dffd3-Tableu19.03.2020.pdf" target="_blank"> 19/03/2020</a>
+                    
+                    <br>
+                    
+                    <br>
 
                 </div>
-
                 <div class="col col-lg-4">
-                    <h4 class="text-center"><a href="https://www.mspbs.gov.py/covid-19.php">Ministerio de salud Publica y Bienestar Social</a></h4>
+                    <h4 class="text-center"><a href="https://www.mspbs.gov.py/covid-19.php" target="_blank">Ministerio de salud Publica y Bienestar Social</a></h4>
                 </div>
 
             </div>
@@ -264,7 +276,7 @@ $resultado = mysqli_query($conectar, $consulta);
             <!-- Grid column -->
             <div class="col-md-8 col-12 mt-5">
                 <p style="line-height: 1.7rem">Espero que con estos Datos expuestos, se pueda tener concienca de la
-                    magnitud a que nos enfrentamos, cumplan con la cuarentena, no se expongan, 
+                    magnitud a que nos enfrentamos, cumplan con la cuarentena, no se expongan,
                     cuidense de la mejor manera que sepan, Esto no es una Joda! <br>
                     DIOS LOS BENDIGA ahora y siempre!
                 </p>
@@ -401,7 +413,7 @@ $resultado = mysqli_query($conectar, $consulta);
     }
 </script>
 <script src="js/datatables.min.js"></script>
-<!-- <script src="js/buttons.bootstrap4.min.js"></script> -->
+<script src="js/buttons.bootstrap4.min.js"></script>
 <script src="js/dataTables.buttons.min.js"></script>
 <!-- <script src="js/jquery.dataTables.min.js"></script> -->
 <script src="js/tabla.js"></script>
