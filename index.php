@@ -148,18 +148,26 @@ $resultado = mysqli_query($conectar, $consulta);
     </div>
 
     <!-- ===========================fin Tabla========================= -->
-    <div class="container  text-justificy mt-5">
+    <div class="container  text-center mt-5">
         <hr>
         <p>
             Los Datos son oficiales del Ministerios de Salud Publica y Bienestar Social. Se utilizo un modelo matematico
             extraido de estes canal <a href="https://www.youtube.com/watch?v=-PUT0hZiZEw&t=1038s">El traductor de Ingeniería</a>
             para predecir los infectados posibles
         </p>
+        <div class="container text-center">
+            <p>
+                <h2>Aca pueden ver en una planilla de excel</h2> <a href="excel/Covid-19.html" target="_blank">Predicción hasta el 12 de abril</a>
+                para descargar en este Link
+                <a href="excel/Covid-19.xlsx" download="Prediccionhasta12debril.xlsx">DESCARGAR</a>
+            </p>
+        </div>
         <p>
             Solo se necesitan los infectados por fecha para tal analisis,
             con más datos sera más acertivo, los datos ingresados pueden
             corroborar con los Reportes vinculados aquí abajo.
         </p>
+        
         <hr>
         <div Class="container">
             <div class="row text-center">
@@ -307,11 +315,11 @@ $resultado = mysqli_query($conectar, $consulta);
 
     </div>
     <!-- Footer Links -->
-    
+
     <!-- caja de comentario-->
     <div class="container">
         <div class="container">
-            
+
             <div id="disqus_thread"></div>
             <script>
                 /**
@@ -333,7 +341,7 @@ $resultado = mysqli_query($conectar, $consulta);
             </script>
             <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
-            
+
         </div>
 
     </div>
