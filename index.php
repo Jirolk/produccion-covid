@@ -152,7 +152,7 @@ $resultado = mysqli_query($conectar, $consulta);
         <hr>
         <p>
             Los Datos son oficiales del Ministerios de Salud Publica y Bienestar Social. Se utilizo un modelo matematico
-            extraido de estes canal <a href="https://www.youtube.com/watch?v=-PUT0hZiZEw&t=1038s">El traductor de Ingeniería</a>
+            extraido de estes canal <a href="https://www.youtube.com/watch?v=-PUT0hZiZEw&t=1038s" target="_blank">El traductor de Ingeniería</a>
             para predecir los infectados posibles
         </p>
         <div class="container text-center">
