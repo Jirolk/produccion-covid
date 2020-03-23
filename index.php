@@ -115,7 +115,7 @@ $resultado = mysqli_query($conectar, $consulta);
                     <div class="card-header">TABLA DE SEGUIMIENTO </div>
                     <div class="card-body">
                         <!-- <div class="table-responsive"> -->
-                        <table id="tablaInfectados" class="table table-hover table-responsive-sm">
+                        <table id="tablaInfectados" class="table table-hover table-responsive-lg">
                             <thead class="text-center">
                                 <tr>
                                     <th>Fecha</th>

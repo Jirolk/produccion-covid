@@ -6,7 +6,7 @@ $(document).ready(function(){
         //     // "defaultContent": '<div class="text-center"><div class="btn-group"><button class="btn btn-primary btnEditar">Editar</button> <button class="btn btn-danger btnBorrar">Eliminar</button></div></div>'
         // }],
         
-        // dom:'Bfrtip',
+        // dom:'frtip',
         "lengthMenu":[
             [5,10,20,-1],[5,10,20,"Todos"]
         ],
