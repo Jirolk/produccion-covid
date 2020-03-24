@@ -6,19 +6,19 @@ $(document).ready(function(){
         //     // "defaultContent": '<div class="text-center"><div class="btn-group"><button class="btn btn-primary btnEditar">Editar</button> <button class="btn btn-danger btnBorrar">Eliminar</button></div></div>'
         // }],
         
-        // dom:'frtip',
-        "lengthMenu":[
-            [5,10,20,-1],[5,10,20,"Todos"]
-        ],
-        // buttons:[
+        // dom:'lfrtip',
+          "lengthMenu":[
+              [5,10,20,-1],[5,10,20,"Todos"]
+          ],
+        // "buttons":[
         //     'pageLength'
         // ],
 
         "order":[[0,"desc"]],
         // cambio de idioma
         "language":{
-             "lengthMenu" : "Mostar _MENU_ Registros",
-             "pageLength": "Mostar _MENU_ Registros",
+            "lengthMenu" : "Ver _MENU_ Registros",
+            "pageLength": "Mostar _MENU_ Registros",
             "zeroRecords" : "No se encontraron resultados",
             "info" : "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
             "infoEmpty" : "Mostrando registros del 0 al 0 de un total de _MAX_ registros",
