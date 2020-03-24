@@ -23,6 +23,7 @@
           <a class="dropdown-item" href="https://www.mspbs.gov.py/dependencias/portal/adjunto/de735d-Tablero20.03.2020.pdf" target="_blank">20/03/2020</a>
           <a class="dropdown-item" href="https://www.mspbs.gov.py/dependencias/portal/adjunto/1efbff-Tablerodel21.03.20.pdf" target="_blank">21/03/2020</a>
           <a class="dropdown-item" href="https://www.mspbs.gov.py/dependencias/portal/adjunto/77c682-Tablerodel22.03.pdf" target="_blank"> 22/03/2020</a>
+          <a class="dropdown-item" href="https://www.mspbs.gov.py/dependencias/portal/adjunto/e429c9-Tablero23.03.2020.pdf" target="_blank">23/03/2020</a>
 
         </div>
       </li>

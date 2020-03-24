@@ -86,7 +86,7 @@ $resultado = mysqli_query($conectar, $consulta);
                         $ca = $fila['totalDia'];
                     }
                     $X = $posible - $ca;
-                    echo "<hr><h5 class='text-center'>Prediccíon de: </h5>";
+                    echo "<hr><h5 class='text-center'>Predicción de: </h5>";
                     echo "<h2 class='card-title text-center'>" . round($X) . " </h2>";
                     echo "<h5 class='text-center'>INFECTADOS MÁS</h5>";
                     echo "<hr><h3 class='text-center'>Actualmente son: <br><h2 class='text-center'>" . $ca . "</h2></h3>"
@@ -120,7 +120,7 @@ $resultado = mysqli_query($conectar, $consulta);
                                 <tr>
                                     <th>Fecha</th>
                                     <th>Infectados</th>
-                                    <th>Total en El Día</th>
+                                    <th>Total en el Día</th>
                                     <th>Factor de contagio</th>
                                     <th>Promedio de contagio</th>
                                 </tr>
@@ -151,20 +151,22 @@ $resultado = mysqli_query($conectar, $consulta);
     <div class="container  text-center mt-5">
         <hr>
         <p>
-            Los Datos son oficiales del Ministerios de Salud Publica y Bienestar Social. Se utilizo un modelo matematico
-            extraido de estes canal <a href="https://www.youtube.com/watch?v=-PUT0hZiZEw&t=1038s" target="_blank">El traductor de Ingeniería</a>
+            Los Datos son oficiales del <b>Ministerios de Salud Publica y Bienestar Social</b> . Se utilizo un modelo matemático
+            extraído de este canal <a href="https://www.youtube.com/watch?v=-PUT0hZiZEw&t=1038s" target="_blank">El traductor de Ingeniería</a>
             para predecir los infectados posibles
         </p>
         <div class="container text-center">
             <p>
-                <h2>Aca pueden ver en una planilla de excel</h2> <a href="excel/Covid-19.html" target="_blank">Predicción hasta el 12 de abril</a>
+                
+                <b> <h2> Pueden ver en una planilla en excel </h2></b>
+                <a href="excel/Covid-19InformePredic.html" target="_blank">Predicción hasta el 12 de abril</a>
                 para descargar en este Link
-                <a href="excel/Covid-19.xlsx" download="Prediccionhasta12debril.xlsx">DESCARGAR</a>
+                <a href="excel/Covid-19InformePredic.xlsx" download="Prediccionhasta12debril.xlsx">DESCARGAR</a>
             </p>
         </div>
         <p>
-            Solo se necesitan los infectados por fecha para tal analisis,
-            con más datos sera más acertivo, los datos ingresados pueden
+            Solo se necesitan los infectados por fecha para tal análisis,
+            con más datos sera más acertivo, estos lo pueden
             corroborar con los Reportes vinculados aquí abajo.
         </p>
 
@@ -187,6 +189,8 @@ $resultado = mysqli_query($conectar, $consulta);
                 </div>
                 <div class="col col-lg-4">
                     <!-- columan de los registros -->
+                    <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/e429c9-Tablero23.03.2020.pdf" target="_blank">23/03/2020</a>
+                    <br>
                     <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/77c682-Tablerodel22.03.pdf" target="_blank"> 22/03/2020</a>
                     <br>
                     <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/1efbff-Tablerodel21.03.20.pdf" target="_blank"> 21/03/2020</a>
@@ -194,9 +198,9 @@ $resultado = mysqli_query($conectar, $consulta);
                     <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/de735d-Tablero20.03.2020.pdf" target="_blank"> 20/03/2020</a>
                     <br>
                     <a href="https://www.mspbs.gov.py/dependencias/portal/adjunto/9dffd3-Tableu19.03.2020.pdf" target="_blank"> 19/03/2020</a>
-                    
+
                     <br>
-                    
+
                     <br>
 
                 </div>
@@ -362,11 +366,25 @@ $resultado = mysqli_query($conectar, $consulta);
     </div>
     <!-- fin caja de comentario -->
 
-
-
-
+<hr>
+   <div class="container">
+            <div class="container">
+                <p class="text-center">
+                    Responsabilidad: La información aquí contenida se proporciona
+                    solo con fines informativos, es solo la opinión del autor y no debe interpretarse
+                    erróneamente como consejo médico o de expertos. Hay muchas incógnitas, y el autor de
+                    este documento no ofrece ninguna garantía, expresa o implícita, en cuanto a los resultados
+                    obtenidos del uso de la información, y no será responsable de la exactitud de la información y
+                    no se hace responsable de ningún tercero. -clamaciones de reclamaciones o pérdidas por daños.
+                    El autor puede, en cualquier momento, revisar la información en este sitio web sin previo aviso
+                    y no se compromete a actualizar esta información.
+                </p>
+            </div>
+        </div>
+        <hr>
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
+
         <a href="#"> Sandro Castillo</a>
     </div>
     <!-- Copyright -->
