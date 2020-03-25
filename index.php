@@ -26,7 +26,9 @@ $resultado = mysqli_query($conectar, $consulta);
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
 
-    <link rel="shortcut icon" href="img/virus.png" type="image/x-icon">
+    <!-- <link rel="shortcut icon" href="img/virus.png" type="image/png"> -->
+    <link rel="icon" type="image/png" href="img/virus.png"/>
+
     <title>Covid-19</title>
     <link rel="stylesheet" href="css/estilos.css">
 
