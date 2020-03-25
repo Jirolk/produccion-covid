@@ -3,7 +3,7 @@ include_once 'conexcion.php';
 $conectar =  conectar();
 
 
-$consulta = "Select idInforme, fecha, infectados, totalDia,factor,promedioFactor 
+$consulta = "Select idInforme, fecha, infectados, totalDia,factor,promedioFactor
 From informegeneral
 ORDER BY fecha DESC";
 $resultado = mysqli_query($conectar, $consulta);
@@ -24,6 +24,15 @@ $resultado = mysqli_query($conectar, $consulta);
     <script src="js/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/darck.js"></script>
+    <script>
+          DarkReader.enable({
+               brightness: 100,
+               contrast: 100,
+               sepia: 10
+          });
+          // DarkReader.disable(); // PARA CANCELAR O DETENERLO // PODENOS PONER UN BOTON EN ALGUN LUGAR PARA ELLO ALGUN DIA....
+    </script>
 </head>
 
 <body class="bg-light">

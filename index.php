@@ -3,8 +3,8 @@ include_once 'conexcion.php';
 $conectar =  conectar();
 
 
-$consulta = "Select idInforme, fecha, infectados, totalDia,factor,promedioFactor 
-From informegeneral 
+$consulta = "Select idInforme, fecha, infectados, totalDia,factor,promedioFactor
+From informegeneral
 ORDER BY fecha DESC";
 $resultado = mysqli_query($conectar, $consulta);
 // $resultado->execute();
@@ -22,6 +22,7 @@ $resultado = mysqli_query($conectar, $consulta);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/chart.min.js"></script>
+
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
 
@@ -56,7 +57,7 @@ $resultado = mysqli_query($conectar, $consulta);
                     <div class="card-header d-flex justify-content-between aling-items-center">
                         <h1 class="text-center text-dark font-weight-bold m-o">
                             <?php
-                            $pr = "SELECT promedioFactor * totalDia as posibles FROM informegeneral 
+                            $pr = "SELECT promedioFactor * totalDia as posibles FROM informegeneral
                                 WHERE fecha=(SELECT MAX(fecha) AS ayer FROM informegeneral)";
                             $resul = mysqli_query(conectar(), $pr);
                             foreach ($resul as $fila) {
@@ -157,7 +158,7 @@ $resultado = mysqli_query($conectar, $consulta);
         </p>
         <div class="container text-center">
             <p>
-                
+
                 <b> <h2> Pueden ver en una planilla en excel </h2></b>
                 <a href="excel/Covid-19InformePredic.html" target="_blank">Predicción hasta el 12 de abril</a>
                 para descargar en este Link

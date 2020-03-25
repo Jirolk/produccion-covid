@@ -30,3 +30,12 @@
     </ul>
   </div>
 </nav>
+<script src="js/darck.js"></script>
+<script>
+      DarkReader.enable({
+           brightness: 100,
+           contrast: 100,
+           sepia: 10
+      });
+      // DarkReader.disable(); // PARA CANCELAR O DETENERLO // PODENOS PONER UN BOTON EN ALGUN LUGAR PARA ELLO ALGUN DIA....
+</script>
