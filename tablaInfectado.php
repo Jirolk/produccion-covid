@@ -1,5 +1,6 @@
 
-    <table id="tablaInf" class="table table-hover table-responsive-sm">
+    <table id="tablaInf" class="table table-hover table-responsive-sm text-white bg-info shadow mt-1">
+    <!-- <table id="tablaInf" class="table table-hover table-responsive-sm"> -->
         <thead class="text-center">
             <tr>
                 <th hidden>ID</th>
@@ -15,10 +16,10 @@
             <?php
             foreach ($resultado as $fila) {
                 echo "<tr class='text-center'>";
-                
+
                 echo "<td HIDDEN>" . $fila['idInforme'] . "</td>";
                 echo "<td>" . $fila['fecha'] . "</td>";
-                echo "<td style='background:rgb(0,0,0)'>" . $fila['infectados'] . "</td>";
+                echo "<td style='background:rgb(0,80,90)'>" . $fila['infectados'] . "</td>";
                 echo "<td>" . $fila['totalDia'] . "</td>";
                 echo "<td>" . $fila['factor'] . "</td>";
                 echo "<td>" . $fila['promedioFactor'] . "</td>";

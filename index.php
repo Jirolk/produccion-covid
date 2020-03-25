@@ -117,6 +117,8 @@ $resultado = mysqli_query($conectar, $consulta);
                     <div class="card-body">
                         <!-- <div class="table-responsive"> -->
                         <table id="tablaInfectados" class="table table-hover table-responsive-lg">
+                        <!-- <table id="tablaInfectados" class="table table-hover table-responsive-sm text-white bg-info shadow mt-1"> -->
+
                             <thead class="text-center">
                                 <tr>
                                     <th>Fecha</th>
@@ -414,7 +416,7 @@ $resultado = mysqli_query($conectar, $consulta);
                         labels: fecha,
                         datasets: [{
                             label: 'Hasta la fecha',
-                            // backgroundColor: '$49e2ff',
+                            backgroundColor: '#49e2ff',
                             borderColor: 'green',
                             hoverBackgroundColor: '#CCCCCC',
                             hoverBorderColor: '#666666',
