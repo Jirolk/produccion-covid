@@ -43,7 +43,7 @@ $resultado = mysqli_query($conectar, $consulta);
             <div class="col col-lg-6">
                 <div class="card shadow mb-4">
                     <div class="card-header d-flex justify-content-between aling-items-center">
-                        <h2 class="tex-primary  text-center font-weight-bold m-o">Seguimiento de Infectados</h2>
+                        <h1 class="text-primary  text-center font-weight-bold m-o">Seguimiento de Infectados</h1>
                     </div>
                     <div class="card-body">
                         <canvas id="Grafica" width="40%" height="41%"></canvas>
