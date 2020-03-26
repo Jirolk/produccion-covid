@@ -1,8 +1,6 @@
 # Covid-19py.me
-Pagina web de prediccion del coronavirus en Paraguay
+Página web de predicción del Coronavirus Covid-19 en Paraguay
 
-Es un proyecto personal con la intención de dar conciencia e información 
+Es un proyecto personal con la intención de dar consciencia e información 
 de la magnitud de propagación de esta enfermedad, si no se llega a 
-controlar podría expandirse mucho más rapido.
-Espero que los numeros que salen enla predicción no sean correctos 
-siempre
+controlar podría expandirse mucho más rápido.
