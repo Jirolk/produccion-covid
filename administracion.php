@@ -16,7 +16,7 @@
           <title>Covid 19</title>
           <link rel="icon" type="image/png" href="img/virus.png"/>
           <link rel="stylesheet" href="css/bootstrap.min.css">
-          <script src="js/jquery-3.3.1.min.js"></script>
+          <script src="js/jquery-3.4.1.min.js"></script>
           <script src="alertify/alertify.min.js"></script>
           <!-- Boostrap -->
           <script src="bt/bootstrap.min.js"></script>
@@ -50,13 +50,13 @@
           <script>
               $(document).ready(function(){
                   var usuValido = "<?php echo isset($_SESSION['usuarioValido']) ? $_SESSION['usuarioValido'] : '0'; ?>";
-                  var usuNivel  = "<?php echo isset($_SESSION['nivelUsuario']) ? $_SESSION['nivelUsuario'] : '0'; ?>";
+                  // var usuNivel  = "<?php echo isset($_SESSION['nivelUsuario']) ? $_SESSION['nivelUsuario'] : '0'; ?>";
                   if(usuValido == 'no'){
-                       alertify.error("El Usuario, contraseña o Sucusal incorrecta!!!");
+                       alertify.error("El Usuario o contraseña!!!");
                   }else if(usuValido == 'noo'){
                        alertify.error("El usuario se encuentra logeado o desactivado actualmente!!!");
                   }else if (usuValido == "si"){
-                          window.location="menuadmin.php";
+                          window.location="carga.php";
                   }
               });
           </script>

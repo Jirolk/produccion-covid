@@ -25,7 +25,7 @@ $resultado = mysqli_query($conectar, $consulta);
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
 
-    
+
     <script src="js/darck.js"></script>
     <script>
           DarkReader.enable({
@@ -39,6 +39,22 @@ $resultado = mysqli_query($conectar, $consulta);
 </head>
 
 <body class="bg-light">
+  <?php
+        if(!isset($_SESSION)){
+           session_start();
+       }
+   ?>
+  <script type="text/javascript">
+       var usuValido = "<?php echo isset($_SESSION['usuarioValido']) ? $_SESSION['usuarioValido'] : '0'; ?>";
+       // alert(usuValido);
+      // verificarSesion(usuValido);
+      if(usuValido != "si"){
+        location.href="administracion.php";
+      }
+  </script>
+
+  <button type="button" onclick="window.location='/produccion-covid/cerrarSesion.php'" name="button">CERRAR SESION</button>
+
     <div class="container shadow mt-1">
         <h1>Carga de Datos</h1>
     </div>
@@ -105,7 +121,6 @@ $resultado = mysqli_query($conectar, $consulta);
 </body>
 <script src="js/datatables.min.js"></script>
 <script src="js/tabla.js"></script>
-<script src="js/script.min.js
-"></script>
+<script src="js/script.min.js"></script>
 
 </html>
