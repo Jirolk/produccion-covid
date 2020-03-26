@@ -52,7 +52,7 @@
                   var usuValido = "<?php echo isset($_SESSION['usuarioValido']) ? $_SESSION['usuarioValido'] : '0'; ?>";
                   // var usuNivel  = "<?php echo isset($_SESSION['nivelUsuario']) ? $_SESSION['nivelUsuario'] : '0'; ?>";
                   if(usuValido == 'no'){
-                       alertify.error("El Usuario o contraseña!!!");
+                       alertify.error("El Usuario o contraseña incorrecto.!!!");
                   }else if(usuValido == 'noo'){
                        alertify.error("El usuario se encuentra logeado o desactivado actualmente!!!");
                   }else if (usuValido == "si"){
