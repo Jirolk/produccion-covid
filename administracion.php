@@ -22,6 +22,7 @@
           <link rel="stylesheet" href="font/font-awesome.min.css">
           <link rel="stylesheet" href="font/font-awesome.min.css">
 
+          <!-- JQUERY -->
           <script src="js/jquery-3.4.1.min.js"></script>
 
           <!-- ALERTIFY --> 
