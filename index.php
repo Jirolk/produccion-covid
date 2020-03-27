@@ -84,7 +84,7 @@ $resultado = mysqli_query($conectar, $consulta);
                     </h4>
 
                     <?php
-                    $pr = "SELECT promedioFactor * totalDia as posibles FROM informegeneral 
+                    $pr = "SELECT promedioFactor * totalDia as posibles FROM informegeneral
                                 WHERE fecha=(SELECT MAX(fecha) AS ayer FROM informegeneral)";
                     $resul = mysqli_query(conectar(), $pr);
                     foreach ($resul as $fila) {
@@ -114,7 +114,7 @@ $resultado = mysqli_query($conectar, $consulta);
                         <br>
                         <div style="float:center;">
                             <?php
-                            echo "<h3 class='text-center'>Prediccíon para Mañana: 
+                            echo "<h3 class='text-center'>Prediccíon para Mañana:
                                 <script type='text/javascript'>
                                     var fecha = new Date();
                                     var manana = new Date(fecha.getTime() + 24 * 60 * 60 * 1000);
