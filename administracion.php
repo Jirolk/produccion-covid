@@ -68,7 +68,7 @@
               <div class="panel-body ">
                   <form style="background-color:rgba(25, 26, 27,0.95);" id="formAcceso" method="post" action="servicios/validarAcceso.php">
                     <div class="col-md-12">
-                      <img id="logo" src="img/logo.jpeg" alt="ASDASD"/>
+                      <img id="logo" src="img/logo.jpeg" alt=""/>
                     </div>
                       <div class="row" align="center">
                       </div>

@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav" id="menu">
       <li class="nav-item active">
         <a class="nav-link" href="index.php">Inicio <span class="sr-only">(current)</span></a>
       </li>
@@ -30,14 +30,3 @@
     </ul>
   </div>
 </nav>
-
-
-<script src="js/darck.js"></script>
-<script>
-      DarkReader.enable({
-           brightness: 100,
-           contrast: 100,
-           sepia: 10
-      });
-      // DarkReader.disable(); // PARA CANCELAR O DETENERLO // PODENOS PONER UN BOTON EN ALGUN LUGAR PARA ELLO ALGUN DIA....
-</script>
