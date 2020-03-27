@@ -14,6 +14,7 @@ CREATE TABLE users(
 	Nick		VARCHAR(15),
 	Passwd		VARCHAR(25),
 	Id_rol		INT,
+	Estado ENUM('Activo','Ocupado','Inhabilitado') DEFAULT "Activo" NOT NULL,
 	FOREIGN KEY (Id_rol) REFERENCES roles(Id_rol)
 );
 

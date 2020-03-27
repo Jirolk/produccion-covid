@@ -13,15 +13,24 @@
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           <meta name="theme-color" content="black">
+
           <title>Covid 19</title>
+
           <link rel="icon" type="image/png" href="img/virus.png"/>
           <link rel="stylesheet" href="css/bootstrap.min.css">
-          <script src="js/jquery-3.4.1.min.js"></script>
-          <script src="alertify/alertify.min.js"></script>
-          <!-- Boostrap -->
-          <script src="bt/bootstrap.min.js"></script>
           <!-- Font-Adswesome -->
           <link rel="stylesheet" href="font/font-awesome.min.css">
+          <link rel="stylesheet" href="font/font-awesome.min.css">
+
+          <script src="js/jquery-3.4.1.min.js"></script>
+
+          <!-- ALERTIFY --> 
+          <script src="alertify/alertify.min.js"></script>
+          <link rel="stylesheet" href="alertify/alertify.min.css">
+          <link rel="stylesheet" href="alertify/defailt.min.css">
+          
+          <!-- Boostrap -->
+          <script src="bt/bootstrap.min.js"></script>
           <style media="screen">
                #panelAcceso{
                    max-width: 400px;
@@ -54,9 +63,9 @@
                   if(usuValido == 'no'){
                        alertify.error("El Usuario o contraseña incorrecto.!!!");
                   }else if(usuValido == 'noo'){
-                       alertify.error("El usuario se encuentra logeado o desactivado actualmente!!!");
+                       alertify.error("El usuario ya se encuentra logeado o está inhabilitado actualmente!!!");
                   }else if (usuValido == "si"){
-                          window.location="carga.php";
+                          window.location="carga-dup.php";
                   }
               });
           </script>
