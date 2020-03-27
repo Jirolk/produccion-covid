@@ -48,7 +48,7 @@
                 if($con == 1){
                     echo '<td><button class="btn btn-info  btnEditar"><i class="fa fa-pencil" aria-hidden="true"></i></button> <button class="btn btn-danger btnBorrar"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
                 }else{
-                    echo "<td></td>";
+                    echo '<td><button class="btn btn-info  btnEditar" disabled><i class="fa fa-pencil" aria-hidden="true"></i></button> <button class="btn btn-danger btnBorrar" disabled><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
                 }
                 ++$con;
                 echo "</tr>";
