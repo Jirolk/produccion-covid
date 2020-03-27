@@ -13,19 +13,10 @@
           <meta charset="utf-8">
           <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
           <meta name="theme-color" content="black">
-<<<<<<< Updated upstream:administracion.php
           <title>Covid 19</title>
           <link rel="icon" type="image/png" href="img/virus.png"/>
           <link rel="stylesheet" href="css/bootstrap.min.css">
           <script src="js/jquery-3.4.1.min.js"></script>
-=======
-          <title>Hotel Rivera del Norte</title>
-          <link rel="icon" type="image/png" href="img/icono.jpeg"/>
-          <link rel="stylesheet" href="css/bootstrap.min.css">
-          <link rel="stylesheet" href="font/font-awesome.min.css">
-          <link rel="stylesheet" href="alertify/alertify.min.css">
-          <script src="js/jquery-3.3.1.min.js"></script>
->>>>>>> Stashed changes:administacion.php
           <script src="alertify/alertify.min.js"></script>
           <!-- Boostrap -->
           <script src="bt/bootstrap.min.js"></script>
@@ -86,16 +77,7 @@
                           <div class="col-12">
                               <div style="color: white;" class="form-group">
                                   <div class="input-group col-12">
-<<<<<<< Updated upstream:administracion.php
                                       <input class="form-control" placeholder="Usuario" id="loginname" name="loginname" type="text" autocomplete="off" min="0" autofocus/>
-=======
-                                       <div class="input-group-addon" style="border: 1px solid; margin: auto; padding: 6px; border-color: #FF0000!important;width: 40px;
-                                       box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6)!important;">
-                                            <i class="fa fa-user-circle"></i>
-                                       </div>
-     							                           <input class="form-control" placeholder="Usuario" id="loginname" name="loginname" type="number" autocomplete="off" min="0" autofocus/>
-
->>>>>>> Stashed changes:administacion.php
                                   </div>
                                   <br>
                                   <div class="input-group col-12 ">
