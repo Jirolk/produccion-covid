@@ -41,7 +41,7 @@ if ($user == null || $user == "") {
             // $resul = mysqli_query($conexion, $sql);
         }
     }
-    header("Location:../carga-dup.php");
+    header("Location:../carga.php");
 
 }
 ?>
