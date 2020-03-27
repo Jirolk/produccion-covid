@@ -218,8 +218,8 @@ $resultado = mysqli_query($conectar, $consulta);
                         promedio = datos[0].promedioFactor;
                         posibles = datos[0].posible;
                         id=datos[0].idInforme;*/
-                        alert(data);
-                        alertify.alert('Atención', 'Registro Guardado con éxito!', function(){ alertify.success('Ok');location.reload(); });
+                        //alert(data);
+                        alertify.alert('Atención', 'Registro Guardado con éxito!', function(){ location.reload(); });
                         //alert("aca"+datos[0].idInforme);
                         
                        /* tb = $("#tablaInf").DataTable();
