@@ -36,6 +36,8 @@ $resultado = mysqli_query($conectar, $consulta);
 
         <!-- <div class="card shadow text-dark bg-light mb-3"> -->
         <div class="card-header">TABLA DE SEGUIMIENTO</div>
+
+        
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

@@ -29,6 +29,19 @@ $resultado = mysqli_query($conectar, $consulta);
     <script src="js/datatables.min.js"></script>
     <!-- <script src="js/script.min.js"></script> -->
 </head>
+  <?php
+        if(!isset($_SESSION)){
+           session_start();
+       }
+   ?>
+  <script type="text/javascript">
+       var usuValido = "<?php echo isset($_SESSION['usuarioValido']) ? $_SESSION['usuarioValido'] : '0'; ?>";
+       // alert(usuValido);
+      // verificarSesion(usuValido);
+      if(usuValido != "si"){
+        location.href="administracion.php";
+      }
+  </script>
     <div class="container">
         <?php include_once "cabecera.php" ?>
         <h2 class="text-center mt-3" id="titulo"><b>Carga de Datos</b></h2>
@@ -43,6 +56,12 @@ $resultado = mysqli_query($conectar, $consulta);
         ?>
             <h2 class="text-primary text-center mt-3"><b>Tabla de Seguimientos</b></h2>
             <p class="text-center mt-3"><b>Observación:</b> Solo el primer registro se podrá modificar o eliminar. Sea atento a la hora de ir cargando los datos.</p><hr>
+                    <!-- boton de cerrar cesion -->
+            <div class="card shadow text-dark bg-light mb-4">
+            <div class="card shadow text-dark bg-light mb-4">
+                <button type="button" class="btn btn-mg btn-primary btn-block" onclick="window.location='/produccion-covid/cerrarSesion.php'" name="button">CERRAR SESION</button>
+            </div>
+
             <?php require_once "tablaInfectado.php"; ?>
         <!-- </div> -->
     </div>

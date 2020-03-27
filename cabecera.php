@@ -1,3 +1,13 @@
+<script src="js/darck.js"></script>
+<script>
+      DarkReader.enable({
+           brightness: 100,
+           contrast: 100,
+           sepia: 10
+      });
+      // DarkReader.disable(); // PARA CANCELAR O DETENERLO // PODENOS PONER UN BOTON EN ALGUN LUGAR PARA ELLO ALGUN DIA....
+</script>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-info">
   <a class="navbar-brand" href="index.php">Covid-19 en Paraguay</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
