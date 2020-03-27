@@ -55,6 +55,8 @@ $resultado = mysqli_query($conectar, $consulta);
 
             </div>
             <div class="col col-lg-6">
+                <!-- ====================Cambio de informe visual==================================== -->
+                <br><br>
                 <div class="card text-white bg-info shadow mt-1">
                     <div class="card-header d-flex justify-content-between aling-items-center">
                         <h1 class="text-center text-dark font-weight-bold m-o">
@@ -82,36 +84,58 @@ $resultado = mysqli_query($conectar, $consulta);
                     </h4>
 
                     <?php
+                    $pr = "SELECT promedioFactor * totalDia as posibles FROM informegeneral 
+                                WHERE fecha=(SELECT MAX(fecha) AS ayer FROM informegeneral)";
+                    $resul = mysqli_query(conectar(), $pr);
+                    foreach ($resul as $fila) {
+                        $posible = $fila['posibles'];
+                    }
                     $caso = "SELECT totalDia FROM informegeneral
-                        WHERE fecha =(SELECT DATE (MAX(fecha)) FROM informegeneral )";
+                                WHERE fecha =(SELECT DATE (MAX(fecha)) FROM informegeneral )";
                     $totalCaso = mysqli_query(conectar(), $caso);
                     foreach ($totalCaso as $fila) {
                         $ca = $fila['totalDia'];
                     }
                     $X = $posible - $ca;
-                    echo "<hr><h5 class='text-center'>Predicción de: </h5>";
-                    echo "<h2 class='card-title text-center'>" . round($X) . " </h2>";
-                    echo "<h5 class='text-center'>INFECTADOS MÁS</h5>";
-                    echo "<hr><h3 class='text-center'>Actualmente son: <br><h2 class='text-center'>" . $ca . "</h2></h3>"
-
                     ?>
+                    <div class="card-header d-flex justify-content-between aling-items-center">
+                        <h1 class="text-center text-dark font-weight-bold m-o">
+                            <?php
+                            echo "<hr><h3 class=' text-dark text-center font-weight-bold m-o'>
+                            ACTUALMENTE <br>CONFIRMADOS <h1 class='text-center text-dark font-weight-bold m-o'><big>" . $ca . "</big></h1></h3>";
+                            ?>
+                        </h1>
+                    </div>
+                    <br>
+                    <h2 class="card-title text-center mt-3">CASOS POSIBLES <br>
+                        <?php echo "<br>[" . round($posible); ?>]
+                    </h2>
+                    <div>
+                        <br>
+                        <div style="float:center;">
+                            <?php
+                            echo "<h3 class='text-center'>Prediccíon para Mañana: 
+                                <script type='text/javascript'>
+                                    var fecha = new Date();
+                                    var manana = new Date(fecha.getTime() + 24 * 60 * 60 * 1000);
+                                    document.write('' + manana.getDate() + '/' + (manana.getMonth() + 1) + '/' + manana.getFullYear());
+                                </script></h3>";
+                            echo "<br><h2 class='card-title text-center'>" . round($X) . "</h2>";
+                            echo "<br><h5 class='text-center'>NUEVOS POSIBLES INFECTADOS</h5>";
+                            ?>
+                        </div>
+                    </div>
+                    </h4>
 
                     <div class="card-body">
-
-
-
-
-
                     </div>
                 </div>
+                <!-- ===============================fin del informe vista============================== -->
             </div>
 
         </div>
         <!-- ===========================Fin Grafico========================= -->
         <!-- ===========================Tabla========================= -->
-
-
-
         <div class="row">
             <div class="col-12">
                 <div class="card shadow text-dark bg-light mt-5">
@@ -163,7 +187,9 @@ $resultado = mysqli_query($conectar, $consulta);
         <div class="container text-center">
             <p>
 
-                <b> <h2> Pueden ver en una planilla en excel </h2></b>
+                <b>
+                    <h2> Pueden ver en una planilla en excel </h2>
+                </b>
                 <a href="excel/Covid-19InformePredic.html" target="_blank">Predicción hasta el 12 de abril</a>
                 para descargar en este Link
                 <a href="excel/Covid-19InformePredic.xlsx" download="Prediccionhasta12debril.xlsx">DESCARGAR</a>
@@ -340,6 +366,14 @@ $resultado = mysqli_query($conectar, $consulta);
     </div>
     <!-- Footer Links -->
 
+    <!--Imagen de los que apoyan  -->
+    <div class="container">
+        <a href=""><img src="img/apoyo.png" alt="Los que Apoyan" width="100%" height="30%"></a>
+    </div>
+
+
+
+
     <!-- caja de comentario-->
     <div class="container">
         <div class="container">
@@ -371,22 +405,22 @@ $resultado = mysqli_query($conectar, $consulta);
     </div>
     <!-- fin caja de comentario -->
 
-<hr>
-   <div class="container">
-            <div class="container">
-                <p class="text-center">
-                    Responsabilidad: La información aquí contenida se proporciona
-                    solo con fines informativos, es solo la opinión del autor y no debe interpretarse
-                    erróneamente como consejo médico o de expertos. Hay muchas incógnitas, y el autor de
-                    este documento no ofrece ninguna garantía, expresa o implícita, en cuanto a los resultados
-                    obtenidos del uso de la información, y no será responsable de la exactitud de la información y
-                    no se hace responsable de ningún tercero. -clamaciones de reclamaciones o pérdidas por daños.
-                    El autor puede, en cualquier momento, revisar la información en este sitio web sin previo aviso
-                    y no se compromete a actualizar esta información.
-                </p>
-            </div>
+    <hr>
+    <div class="container">
+        <div class="container">
+            <p class="text-center">
+                Responsabilidad: La información aquí contenida se proporciona
+                solo con fines informativos, es solo la opinión del autor y no debe interpretarse
+                erróneamente como consejo médico o de expertos. Hay muchas incógnitas, y el autor de
+                este documento no ofrece ninguna garantía, expresa o implícita, en cuanto a los resultados
+                obtenidos del uso de la información, y no será responsable de la exactitud de la información y
+                no se hace responsable de ningún tercero. -clamaciones de reclamaciones o pérdidas por daños.
+                El autor puede, en cualquier momento, revisar la información en este sitio web sin previo aviso
+                y no se compromete a actualizar esta información.
+            </p>
         </div>
-        <hr>
+    </div>
+    <hr>
     <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
 
