@@ -18,8 +18,22 @@
                 echo "<tr class='text-center'>";
 
                 echo "<td HIDDEN>" . $fila['idInforme'] . "</td>";
+<<<<<<< HEAD
                 echo "<td>" . $fila['fecha'] . "</td>";
                 echo "<td style='background:rgb(0,80,90)'>" . $fila['infectados'] . "</td>";
+<<<<<<< HEAD
+=======
+=======
+                $date = date_create($fila['fecha']);
+                $fe = date_format($date,"d/m/Y");
+                echo "<td>".$fe."</td>";
+                if( $fila['infectados'] == 0){
+                    echo "<td style='background:rgb(0, 255,0,0.6);color:white;'>" . $fila['infectados'] . "</td>";
+                }else{
+                    echo "<td style='background:rgba(255, 0, 0, 0.6);color:white;'>" . $fila['infectados'] . "</td>";
+                }
+>>>>>>> agus1
+>>>>>>> parent of 1880863... merge
                 echo "<td>" . $fila['totalDia'] . "</td>";
                 echo "<td>" . $fila['factor'] . "</td>";
                 echo "<td>" . $fila['promedioFactor'] . "</td>";
@@ -30,3 +44,7 @@
             ?>
         </tbody>
     </table>
+<<<<<<< HEAD
+=======
+</div>
+>>>>>>> parent of 1880863... merge
