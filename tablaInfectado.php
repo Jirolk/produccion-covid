@@ -30,7 +30,3 @@
             ?>
         </tbody>
     </table>
-<<<<<<< HEAD
-</div>
-=======
->>>>>>> parent of b96e62a... merge
