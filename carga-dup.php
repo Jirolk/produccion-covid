@@ -23,7 +23,7 @@ $resultado = mysqli_query($conectar, $consulta);
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/datatables.min.css">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="shortcut icon" href="img/virus.png" type="image/x-icon">
+    <link rel="icon" href="img/virus.png" type="image/png">
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/alertify.min.js"></script>
@@ -241,6 +241,7 @@ $resultado = mysqli_query($conectar, $consulta);
             inf = $("#infectados").val();
             mue = $("#muertes").val();
             rec = $("#recuperados").val();
+            da=0;
             if(opcion == 2){
                 da = id;
             }
