@@ -2,7 +2,7 @@
     header('Content-Type: application/json');
     require_once("conexcion.php");
     $conn=conectar();
-    $sqlQuerey = "Select fecha, totalDia from informegeneral";
+    $sqlQuerey = "Select fecha, infectados from informegeneral";
     $result=mysqli_query($conn,$sqlQuerey);
 
     $data = array();
