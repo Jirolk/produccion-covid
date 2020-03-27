@@ -14,9 +14,9 @@ $resultado = mysqli_query($conectar, $consulta);
 <html lang="es">
 
 <head>
+    <title>Carga de Datos</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carga de Datos</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/alertify.min.css">
     <link rel="stylesheet" href="css/default.min.css">
@@ -28,8 +28,29 @@ $resultado = mysqli_query($conectar, $consulta);
     <script src="js/bootstrap.min.js"></script>
     <script src="js/alertify.min.js"></script>
     <script src="js/datatables.min.js"></script>
-    <!-- <script src="js/script.min.js"></script> -->
 </head>
+<style>
+#div-cookies {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px -5px 15px gray;
+    padding: 7px;
+    text-align: center;
+    z-index: 99;
+}
+</style>
+<body>
+    <div id="div-cookies" style="display: none;">
+    Necesitamos usar cookies para que funcione todo, si permanece aquí acepta su uso, más información en
+    la
+    <a hreflang="es" href="politica-privacidad.php" target="_blank">Política de Privacidad</a>.
+    <button type="button" class="btn btn-sm btn-primary" onclick="acceptCookies()">
+    Acepto el uso de cookies
+    </button>
+    </div>
     <div class="container">
         <?php include_once "cabecera.php" ?>
         <h2 class="text-center mt-3" id="titulo"><b>Carga de Datos</b></h2>
@@ -104,6 +125,20 @@ $resultado = mysqli_query($conectar, $consulta);
 </body>
 
 <script>
+    /* ésto comprueba la localStorage si ya tiene la variable guardada */
+    function checkAcceptCookies() {
+        if (localStorage.acceptCookies == 'true') {} else {
+            $('#div-cookies').show();
+        }
+    }
+
+    function acceptCookies() {
+        localStorage.acceptCookies = 'true';
+        $('#div-cookies').hide();
+    }
+    $(document).ready(function() {
+        checkAcceptCookies();
+    });
      document.getElementById("menu").style.display="none";//oculto el detalle del menu
      $(document).ready(function () {
         tablaInf = $("#tablaInf").DataTable({
