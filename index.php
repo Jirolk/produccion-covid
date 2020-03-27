@@ -406,7 +406,7 @@ $resultado = mysqli_query($conectar, $consulta);
 
                     for (var i in data) {
                         fecha.push(data[i].fecha);
-                        infectados.push(data[i].totalDia);
+                        infectados.push(data[i].infectados);
                     }
 
                     var chartData = {
