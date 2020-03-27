@@ -25,7 +25,6 @@ $resultado = mysqli_query($conectar, $consulta);
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/bootstrap.min.js"></script>
 
-
     <script src="js/darck.js"></script>
     <script>
           DarkReader.enable({
@@ -36,6 +35,7 @@ $resultado = mysqli_query($conectar, $consulta);
           // DarkReader.disable(); // PARA CANCELAR O DETENERLO // PODENOS PONER UN BOTON EN ALGUN LUGAR PARA ELLO ALGUN DIA....
         DarkReader.auto(false);
     </script>
+    
 </head>
 
 <body class="bg-light">

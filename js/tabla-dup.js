@@ -85,15 +85,15 @@ $(document).ready(function(){
                       });
                  }
             },
-            {
-                 text: "<i class='fa fa-plus' aria-hidden='true'> <b>Nuevo Artículo</b> </i>",
-                 attr:{
-                      class:"btn btn-danger",
-                      style:"color:black;"
-                 },
-                 action: function (e, dt, node, config){
-                   window.location="articulos_am.php?accion=N";
-             }}
+          //   {
+          //        text: "<i class='fa fa-plus' aria-hidden='true'> <b>Nuevo Artículo</b> </i>",
+          //        attr:{
+          //             class:"btn btn-danger",
+          //             style:"color:black;"
+          //        },
+          //        action: function (e, dt, node, config){
+          //          window.location="articulos_am.php?accion=N";
+          //    }}
        ]
     });
 

@@ -10,8 +10,8 @@ $(document).ready(function(){
         "lengthMenu":[
             [5,10,20,-1],[5,10,20,"Todos"]
         ],
-        // buttons:[
-        //     'pageLength'
+         //buttons:[
+          //   'pageLength'
         // ],
 
         "order":[[0,"desc"]],
