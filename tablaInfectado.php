@@ -28,10 +28,9 @@
                 echo "<tr class='text-center'>";
 
                 echo "<td HIDDEN>" . $fila['idInforme'] . "</td>";
-<<<<<<< HEAD
                 echo "<td>" . $fila['fecha'] . "</td>";
                 echo "<td style='background:rgb(0,80,90)'>" . $fila['infectados'] . "</td>";
-=======
+                // <<<<<<< HEAD =======
                 $date = date_create($fila['fecha']);
                 $fe = date_format($date,"d/m/Y");
                 echo "<td>".$fe."</td>";
@@ -40,7 +39,7 @@
                 }else{
                     echo "<td style='background:rgba(255, 0, 0, 0.6);color:white;'>" . $fila['infectados'] . "</td>";
                 }
->>>>>>> agus1
+// >>>>>>> agus1
                 echo "<td>" . $fila['totalDia'] . "</td>";
                 if( $fila['falledias'] == 0){
                     echo "<td>" . $fila['falledias'] . "</td>";

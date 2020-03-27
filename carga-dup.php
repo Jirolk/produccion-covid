@@ -2,7 +2,7 @@
 include_once 'conexcion.php';
 $conectar =  conectar();
 $consulta = "SELECT * FROM informegeneral i
-JOIN afectados a 
+JOIN afectados a
 ON a.idInforme=i.idInforme
 ORDER BY fecha DESC";
 $resultado = mysqli_query($conectar, $consulta);
@@ -41,12 +41,13 @@ $resultado = mysqli_query($conectar, $consulta);
             $dia =  date("Y-m-d",strtotime($d."+ 1 days"));
             echo '<script>document.getElementById("maxfecha").value="'.$dia.'"</script>';
         ?>
+        
             <h2 class="text-primary text-center mt-3"><b>Tabla de Seguimientos</b></h2>
             <p class="text-center mt-3"><b>Observación:</b> Solo el primer registro se podrá modificar o eliminar. Sea atento a la hora de ir cargando los datos.</p><hr>
             <?php require_once "tablaInfectado.php"; ?>
         <!-- </div> -->
     </div>
-    
+
     <!-- ============================modal===================== -->
 
     <div class="modal fade" id="modalCrud" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -181,7 +182,7 @@ $resultado = mysqli_query($conectar, $consulta);
                 $.ajax({
                     url: "abm.php",
                     type: "POST",
-                    datatype: "json", 
+                    datatype: "json",
                     data: { opcion: opcion, id: id },
                     success: function () {
                         tb = $("#tablaInf").DataTable();
@@ -221,7 +222,7 @@ $resultado = mysqli_query($conectar, $consulta);
                         alert(data);
                         alertify.alert('Atención', 'Registro Guardado con éxito!', function(){ alertify.success('Ok');location.reload(); });
                         //alert("aca"+datos[0].idInforme);
-                        
+
                        /* tb = $("#tablaInf").DataTable();
                         if (opcion == 1) {
                             id='<td hidden>'+id+'</td>';
@@ -241,7 +242,7 @@ $resultado = mysqli_query($conectar, $consulta);
         });
 
 
-    }); 
+    });
 </script>
 
 </html>
