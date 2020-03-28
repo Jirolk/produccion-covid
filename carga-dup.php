@@ -151,11 +151,7 @@ $resultado = mysqli_query($conectar, $consulta);
 </body>
 
 <script>
-     <?php
-            if(!isset($_SESSION)){
-            session_start();
-        }
-    ?>
+    
         var usuario = "<?php if (isset($_SESSION['nombreUsuario'])){
                                    echo $_SESSION['nombreUsuario']." [".$_SESSION['nivelUsuario']."]";
                               }?>";
