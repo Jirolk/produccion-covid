@@ -14,22 +14,22 @@ $resultado = mysqli_query($conectar, $consulta);
 <html lang="es">
 
 <head>
+    <title>Carga de Datos</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carga de Datos</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/alertify.min.css">
+    <link rel="stylesheet" href="css/default.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/datatables.min.css">
     <link rel="stylesheet" href="css/estilos.css">
-    <link rel="shortcut icon" href="img/virus.png" type="image/x-icon">
+    <link rel="icon" href="img/virus.png" type="image/png">
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/alertify.min.js"></script>
     <script src="js/datatables.min.js"></script>
-    <!-- <script src="js/script.min.js"></script> -->
-</head>
-    <?php
+	
+	<?php
             if(!isset($_SESSION)){
             session_start();
         }
@@ -71,9 +71,32 @@ $resultado = mysqli_query($conectar, $consulta);
             }
 
     </script>
+	
+</head>
+<style>
+#div-cookies {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    background-color: white;
+    box-shadow: 0px -5px 15px gray;
+    padding: 7px;
+    text-align: center;
+    z-index: 99;
+}
+</style>
+<body>
+    <div id="div-cookies" style="display: none;">
+    Necesitamos usar cookies para que funcione todo, si permanece aquí acepta su uso, más información en
+    la
+    <a hreflang="es" href="politica-privacidad.php" target="_blank">Política de Privacidad</a>.
+    <button type="button" class="btn btn-sm btn-primary" onclick="acceptCookies()">
+    Acepto el uso de cookies
+    </button>
+    </div>
     <div class="container">
         <?php include_once "cabecera.php" ?>
-
         <h2 class="text-center mt-3" id="titulo"><b>Carga de Datos</b></h2>
         <input type="hidden" class="form-control" id="maxfecha">
         <?php
@@ -85,13 +108,7 @@ $resultado = mysqli_query($conectar, $consulta);
             echo '<script>document.getElementById("maxfecha").value="'.$dia.'"</script>';
         ?>
             <h2 class="text-primary text-center mt-3"><b>Tabla de Seguimientos</b></h2>
-            <p class="text-center mt-3"><b>Observación:</b> Solo el primer registro se podrá modificar o eliminar. Sea atento a la hora de ir cargando los datos.</p><hr>
-                    <!-- boton de cerrar cesion -->
-            <!-- <div class="card shadow text-dark bg-light mb-4"> -->
-            <!-- <div class="card shadow text-dark bg-light mb-4">
-                <button type="button" class="btn btn-mg btn-primary btn-block" onclick="window.location='/produccion-covid/cerrarSesion.php'" name="button">CERRAR SESION</button>
-            </div> -->
-
+            <p class="text-center mt-3"><b>Observación:</b> Solo la última fecha registrada se podrá modificar o eliminar. Sea atento a la hora de ir cargando los datos.</p><hr>
             <?php require_once "tablaInfectado.php"; ?>
         <!-- </div> -->
     </div>
@@ -114,25 +131,25 @@ $resultado = mysqli_query($conectar, $consulta);
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="fecha" class="col-form-label bold font-weight-bold">Fecha de Registro:</label>
-                                    <input type="date" class="form-control" id="fecha">
+                                    <input type="date" disabled class="form-control" id="fecha">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="infectados" class="col-form-label bold font-weight-bold">Cantidad de Infectados:</label>
-                                    <input type="number" class="form-control" id="infectados" autocomplete="off" min="0" value="0">
+                                    <input type="number" onkeydown="if (event.keyCode == 13){ document.getElementById('muertes').focus(); return false;}" class="form-control" id="infectados" autocomplete="off" min="0" value="0">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="infectados" class="col-form-label bold font-weight-bold">Cantidad de Muertes:</label>
-                                    <input type="number" class="form-control" id="muertes" autocomplete="off" min="0" value="0">
+                                    <input type="number" class="form-control" id="muertes" onkeydown="if (event.keyCode == 13){ document.getElementById('recuperados').focus(); return false;}" autocomplete="off" min="0" value="0">
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="infectados" class="col-form-label bold font-weight-bold">Cantidad de Recuperados:</label>
-                                    <input type="number" class="form-control" id="recuperados" autocomplete="off" min="0" value="0">
+                                    <input type="number" class="form-control" id="recuperados" onkeydown="if (event.keyCode == 13){ document.getElementById('btnGuardar').focus(); return false;}" autocomplete="off" min="0" value="0">
                                 </div>
                             </div>
                         </div>
@@ -140,7 +157,7 @@ $resultado = mysqli_query($conectar, $consulta);
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="alertify.warning('Operación Cancelada');">Cancelar</button>
                         <button type="submit" id="btnGuardar" class="btn btn-success">Registrar</button>
                     </div>
                 </form>
@@ -148,11 +165,26 @@ $resultado = mysqli_query($conectar, $consulta);
         </div>
     </div>
 
+
 </body>
 
 <script>
-    
-        var usuario = "<?php if (isset($_SESSION['nombreUsuario'])){
+    /* ésto comprueba la localStorage si ya tiene la variable guardada */
+    function checkAcceptCookies() {
+        if (localStorage.acceptCookies == 'true') {} else {
+            $('#div-cookies').show();
+        }
+    }
+
+    function acceptCookies() {
+        localStorage.acceptCookies = 'true';
+        $('#div-cookies').hide();
+    }
+    $(document).ready(function() {
+        checkAcceptCookies();
+    });
+	
+	  var usuario = "<?php if (isset($_SESSION['nombreUsuario'])){
                                    echo $_SESSION['nombreUsuario']." [".$_SESSION['nivelUsuario']."]";
                               }?>";
         // alert(usuValido);
@@ -162,13 +194,13 @@ $resultado = mysqli_query($conectar, $consulta);
         }
     $(menu).empty() // vascia los elementos del menu en vez de ocultar el div
     document.getElementById("menu").innerHTML = "<div id='container'> <div class='card-md' style='position:absolute; right:0; bottom:0;'><a class='fa fa-user'><label>&nbspUsuario:&nbsp&nbsp"+usuario+"</label></a><br><i class='fa fa-power-off' onclick='window.location=\"/produccion-covid/cerrarSesion.php\"' style='cursor:pointer'><a  onclick='window.location='/produccion-covid/cerrarSesion.php'>&nbspCerrar sesión</a></i></div></div>";
-   
+   	
+     //document.getElementById("menu").style.display="none";//oculto el detalle del menu
      $(document).ready(function () {
         tablaInf = $("#tablaInf").DataTable({
             "order": [[0, "desc"]],
             "columnDefs": [
                 {"targets":[1,2,3,4,5],"className": "dt-body-center"},
-                {"targets": [0 ],"visible": false,"searchable": false},
                 {
                 /* "targets": -1,
                 "data": null,
@@ -211,23 +243,27 @@ $resultado = mysqli_query($conectar, $consulta);
             $(".modal-title").text("Nuevo Registro de Infectados");
             //$("#modalCrud").modal("show");}
             $('#modalCrud').modal({backdrop: 'static', keyboard: false, show:true});
+            document.getElementById("infectados").focus();
             $("#fecha").val($("#maxfecha").val());
-            document.getElementById("fecha").disabled = true;
             opcion = 1;
         });
 
         $(document).on("click", ".btnEditar", function () {
             fila = $(this).closest("tr");
             id = parseInt(fila.find('td:eq(0)').text());
-            fecha = fila.find('td:eq(1)').text();
+            date = fila.find('td:eq(1)').text();
             infectados = fila.find('td:eq(2)').text();
-
+            falledias = fila.find('td:eq(4)').text();
+            recuperadia = fila.find('td:eq(6)').text();
+            var fecha = date.split("/").reverse().join("-");//falta capturar el resto y depostiar
             $("#fecha").val(fecha);
             $("#infectados").val(infectados);
+            $("#muertes").val(falledias);
+            $("#recuperados").val(recuperadia);
             opcion = 2;
             $(".modal-header").css("background-color", "#007bff");
-            $(".modal-title").text("Editar Infectados");
-            $("#modalCrud").modal("show");
+            $(".modal-title").text("Editar Registro de Infectados");
+            $('#modalCrud').modal({backdrop: 'static', keyboard: false, show:true});
 
         });
 
@@ -235,19 +271,23 @@ $resultado = mysqli_query($conectar, $consulta);
             opcion = 3;
             fila = $(this);
             id = parseInt($(this).closest("tr").find('td:eq(0)').text());
-            var respuesta = confirm("¿Estas Seguro de borrar el id=" + id + "?");
-            if (respuesta) {
+            fecha = $(this).closest("tr").find('td:eq(1)').text();
+            var confirm = alertify.confirm('Atención',"¿Estas Seguro de Eliminar los Registros de la Fecha: " + fecha + "?",null,null).set('labels', {ok:'Confirmar', cancel:'Cancelar'});
+            confirm.set({transition:'slide'});  
+            confirm.set('onok', function(){ //callbak al pulsar botón positivo
                 $.ajax({
                     url: "abm.php",
                     type: "POST",
                     datatype: "json", 
                     data: { opcion: opcion, id: id },
                     success: function () {
-                        tb = $("#tablaInf").DataTable();
-                        tb.row(fila.parents('tr')).remove().draw();
+                        alertify.alert('Atención', 'Registro Eliminado con éxito!', function(){ location.reload(); });
                     }
                 });
-            }
+            });
+            confirm.set('oncancel', function(){ //callbak al pulsar botón negativo
+                alertify.warning('Operación Cancelada!');
+            });
         });
 
         $("#formDatos").submit(function (e) {
@@ -257,46 +297,30 @@ $resultado = mysqli_query($conectar, $consulta);
             inf = $("#infectados").val();
             mue = $("#muertes").val();
             rec = $("#recuperados").val();
+            da=0;
+            if(opcion == 2){
+                da = id;
+            }
             $.ajax({
                 url: "abm.php",
                 type: "POST",
                 datatype: "json",
-                data: { fecha: fec, infectados: inf,falledias:mue,recuperadia:rec, opcion: opcion },
+                data: { fecha: fec, infectados: inf,falledias:mue,recuperadia:rec, opcion: opcion ,id:da},
                 success: function (data) {
-                    //alert("holaa"+ data);
                     if(data == 1){
                         alertify.warning("Fecha a registrar ya existe!! Debe actualizar la página!")
                     }else if(data == 2){
                         alertify.warning("Error! Actualice la página!");
-                    }else{
-                        /*var datos = JSON.parse(data);
-                        fecha = datos[0].fecha;
-                        infec = datos[0].infectados;
-                        total = datos[0].totalDia;
-                        factor = datos[0].factor;
-                        promedio = datos[0].promedioFactor;
-                        posibles = datos[0].posible;
-                        id=datos[0].idInforme;*/
-                        //alert(data);
+                    }else if(data == 3){
                         alertify.alert('Atención', 'Registro Guardado con éxito!', function(){ location.reload(); });
-                        //alert("aca"+datos[0].idInforme);
-                        
-                       /* tb = $("#tablaInf").DataTable();
-                        if (opcion == 1) {
-                            id='<td hidden>'+id+'</td>';
-                            infec = "<td style='background:rgb(0, 255,0,0.6);color:white;'>"+infec+"</td>";
-                            tb.row.add([id,fecha, infec,total,factor,promedio]).draw(false);
-                            alert("Posibles Casos"+posibles);
-
-                            //document.getElementById('posiblecaso').innerHTML=posibles;
-                        }else{
-                            id='<td hidden>'+id+'</td>';
-                            tb.row(fila).data([id,fecha, infec, "", "", "",""]).draw(false);
-                        }  */
+                    }else if(data == 4){
+                        alertify.warning("No ha realizado ningún cambio!");
+                        $("#infectados").focus();
+                    }else if(data == 5){
+                        alertify.alert('Atención', 'Registro Actualizado con éxito!', function(){ location.reload(); });
                     }
                 }
             });
-            $("#modalCrud").modal("hide");
         });
 
 
