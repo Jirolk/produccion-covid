@@ -66,6 +66,7 @@ switch ($opcion) {
                     $totr = $reg["re"]+$recuperados;//recuperados
                     $consulta = "insert into afectados(idInforme,fallecidos,falledias,recuperados,recuperadia) values ('$id','$totm','$muertes','$totr','$recuperados')";
                     $resul = mysqli_query(conectar(), $consulta);
+                    echo 3;
                    /* $pr ="SELECT promedioFactor * totalDia as posibles FROM informegeneral 
                     WHERE fecha=(SELECT MAX(fecha) AS ayer FROM informegeneral)";
                     $resul = mysqli_query(conectar(), $pr);
@@ -132,28 +133,55 @@ switch ($opcion) {
             // ====================================================enviar datos para la visualizacion==========================
     
             
-            mysqli_close(conectar());
+            
     
     
         }
-       
+        mysqli_close(conectar());
         break;
     case 2:
         $id = ($_POST['id']);
-        $consulta = "Update informeGeneral SET fecha='$fecha',infectados='$infectados' where idInforme= '$id'";
+        //verifico si modificó algo
+        $consulta= "SELECT * FROM informegeneral i JOIN afectados a ON a.idInforme=i.idInforme
+        WHERE i.idInforme='$id'";
         $resul = mysqli_query(conectar(), $consulta);
-
-        $consulta = "SELECT idInforme,fecha,infectados FROM informegeneral where idInforme='$id";
-        $resul = mysqli_query(conectar(), $consulta);
-
-        foreach ($resul as $fila) {
-            $data[] = $fila;
-        };
+        $reg = mysqli_fetch_array($resul);
+        $inf = $reg["infectados"];//capturo los datos
+        $fal = $reg["falledias"];
+        $rec = $reg["recuperadia"];
+        if($infectados == $inf && $muertes == $fal && $recuperados == $rec){
+            echo 4;
+        }else{
+            $diaAnterior =  date("Y-m-d",strtotime($fecha."- 1 days"));
+            $consulta = "SELECT totalDia, fallecidos,recuperados FROM informegeneral i JOIN afectados a ON a.idInforme=i.idInforme
+            WHERE i.fecha='$diaAnterior'";//traigo los datos del dia anterior
+            $resul = mysqli_query(conectar(), $consulta);
+            $reg = mysqli_fetch_array($resul);
+            $tdia = $reg["totalDia"]+$infectados;//capturo los datos
+            $tfac = $reg["fallecidos"]+$muertes;
+            $trec = $reg["recuperados"]+$recuperados;
+            $factor = $tdia / $reg["totalDia"];//factor de riesgo
+            $consulta = "Update informeGeneral SET infectados='$infectados', factor='$factor', totalDia='$tdia' where idInforme= '$id'";
+            $resul = mysqli_query(conectar(), $consulta);
+            $consulta= "SELECT AVG(factor) prom FROM informegeneral";
+            $resul = mysqli_query(conectar(), $consulta);
+            $reg = mysqli_fetch_array($resul);
+            $promedio = $reg["prom"];//promedio actualizo
+            $consulta = "Update informegeneral SET promedioFactor='$promedio' where idInforme='$id'";
+            $resul = mysqli_query(conectar(), $consulta);
+            $consulta = "Update afectados SET fallecidos='$tfac', falledias='$muertes', recuperados='$trec', recuperadia='$recuperados' where idInforme= '$id'";
+            $resul = mysqli_query(conectar(), $consulta);
+            echo 5;
+        }
+        mysqli_close(conectar());
         break;
     case 3:
         $id = ($_POST['id']);
+        $consulta = "delete from afectados where idInforme = '$id'";
+        $resul = mysqli_query(conectar(), $consulta);
         $consulta = "delete from informegeneral where idInforme = '$id'";
         $resul = mysqli_query(conectar(), $consulta);
+        mysqli_close(conectar());
         break;
 }
 
