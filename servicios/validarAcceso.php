@@ -14,8 +14,7 @@ if ($user == null || $user == "") {
     $sql = "SELECT u.Id_usuario, u.Nick, u.Passwd, r.Rol,u.Estado FROM users u
     INNER JOIN roles r ON r.Id_rol= u.Id_rol
     WHERE  u.Nick = '$user' AND u.Passwd = BINARY '$contrasena'";
-    // WHERE  u.Nick = '$user' AND u.Pass = BINARY '$contrasena';
-    //WHERE  u.Nick = '$user' AND u.Pass = BINARY '$contrasena' AND usuario.Cod_sucursal = BINARY '$sucursal'" ;
+
     $resultado = mysqli_query($conexion, $sql);
 
     $totRegistros = mysqli_num_rows($resultado);
@@ -30,7 +29,7 @@ if ($user == null || $user == "") {
             $estado   = $row['Estado'];
         }
         if($estado == "Activo"){
-        // if($nombre == $user || $contrasena == $paswd ){
+
           $_SESSION["usuarioValido"] = "si"; //Usuario y contraseña valido
           $_SESSION["nombreUsuario"] = $nombre;
           $_SESSION["nivelUsuario"]  = $rol;
@@ -40,10 +39,9 @@ if ($user == null || $user == "") {
           $sql = "UPDATE users SET Estado=2 WHERE Id_usuario='$Id_user'";
           $resul = mysqli_query($conexion, $sql);
         }else{
+
           $_SESSION["usuarioValido"] = "noo";
-            //Se crea variables de sesion
-            // $sql = "UPDATE usuario SET Estado=3 WHERE Id_usuario='$user'";
-            // $resul = mysqli_query($conexion, $sql);
+
         }
     }
     header("Location:../carga-dup.php");
