@@ -33,6 +33,7 @@ $resultado = mysqli_query($conectar, $consulta);
             if(!isset($_SESSION)){
             session_start();
         }
+      
     ?>
     <script type="text/javascript">
         var usuValido = "<?php echo isset($_SESSION['usuarioValido']) ? $_SESSION['usuarioValido'] : '0'; ?>";
@@ -41,6 +42,7 @@ $resultado = mysqli_query($conectar, $consulta);
         if(usuValido != "si"){
             location.href="administracion.php";
         }
+        
     </script>
 
     <script src="js/idle-timer.js"></script>
@@ -183,7 +185,8 @@ $resultado = mysqli_query($conectar, $consulta);
     $(document).ready(function() {
         checkAcceptCookies();
     });
-	
+    
+    
 	  var usuario = "<?php if (isset($_SESSION['nombreUsuario'])){
                                    echo $_SESSION['nombreUsuario']." [".$_SESSION['nivelUsuario']."]";
                               }?>";
@@ -194,7 +197,13 @@ $resultado = mysqli_query($conectar, $consulta);
         }
     $(menu).empty() // vascia los elementos del menu en vez de ocultar el div
     document.getElementById("menu").innerHTML = "<div id='container'> <div class='card-md' style='position:absolute; right:0; bottom:0;'><a class='fa fa-user'><label>&nbspUsuario:&nbsp&nbsp"+usuario+"</label></a><br><i class='fa fa-power-off' onclick='window.location=\"/produccion-covid/cerrarSesion.php\"' style='cursor:pointer'><a  onclick='window.location='/produccion-covid/cerrarSesion.php'>&nbspCerrar sesión</a></i></div></div>";
-   	
+   	<?php
+    
+      if($_SESSION['nivelUsuario']=="Consultas"){
+          echo '  document.getElementById("btnNuevo").style.display="none";';
+            
+        }
+    ?>
      //document.getElementById("menu").style.display="none";//oculto el detalle del menu
      $(document).ready(function () {
         tablaInf = $("#tablaInf").DataTable({

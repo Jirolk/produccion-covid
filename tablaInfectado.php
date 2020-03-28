@@ -46,7 +46,12 @@
                 echo "<td>" . $fila['factor'] . "</td>";
                 echo "<td>" . $fila['promedioFactor'] . "</td>";
                 if($con == 1){
-                    echo '<td><button class="btn btn-info  btnEditar"><i class="fa fa-pencil" aria-hidden="true"></i></button> <button class="btn btn-danger btnBorrar"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+                    if($_SESSION['nivelUsuario']=="Consultas"){
+                        echo '<td></td>';
+            
+                    }else{
+                        echo '<td id="mas"><button id="edit" class="btn btn-info   btnEditar"><i class="fa fa-pencil" aria-hidden="true"></i></button> <button id="del" class="btn btn-danger btnBorrar"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+                    }
                 }else{
                     echo "<td></td>";
                 }
