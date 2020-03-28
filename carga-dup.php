@@ -29,21 +29,51 @@ $resultado = mysqli_query($conectar, $consulta);
     <script src="js/datatables.min.js"></script>
     <!-- <script src="js/script.min.js"></script> -->
 </head>
-  <?php
-        if(!isset($_SESSION)){
-           session_start();
-       }
-   ?>
-  <script type="text/javascript">
-       var usuValido = "<?php echo isset($_SESSION['usuarioValido']) ? $_SESSION['usuarioValido'] : '0'; ?>";
-       // alert(usuValido);
-      // verificarSesion(usuValido);
-      if(usuValido != "si"){
-        location.href="administracion.php";
-      }
-  </script>
+    <?php
+            if(!isset($_SESSION)){
+            session_start();
+        }
+    ?>
+    <script type="text/javascript">
+        var usuValido = "<?php echo isset($_SESSION['usuarioValido']) ? $_SESSION['usuarioValido'] : '0'; ?>";
+        // alert(usuValido);
+        // verificarSesion(usuValido);
+        if(usuValido != "si"){
+            location.href="administracion.php";
+        }
+    </script>
+
+    <script src="js/idle-timer.js"></script>
+    <script type="text/javascript">
+     inactividad();
+            function timer(time,update,complete) {
+                var start = new Date().getTime();
+                var interval = setInterval(function() {
+                    var now = time-(new Date().getTime()-start);
+                    if( now <= 0) {
+                        clearInterval(interval);
+                        complete();
+                    }
+                    else update(Math.floor(now/1000));
+                },100);
+            }
+            //--------------------------------------------------------------------------
+            function inactividad() {
+                        var
+                            docTimeout = 600000;
+                        $(document).on("idle.idleTimer", function (event, elem, obj) {
+                            window.location.href = "/produccion-covid/cerrarsesion.php";
+                        });
+                        $(document).idleTimer({
+                          timeout: docTimeout,
+                          timerSyncId: "document-timer-demo"
+                        });
+            }
+
+    </script>
     <div class="container">
         <?php include_once "cabecera.php" ?>
+
         <h2 class="text-center mt-3" id="titulo"><b>Carga de Datos</b></h2>
         <input type="hidden" class="form-control" id="maxfecha">
         <?php
@@ -122,7 +152,7 @@ $resultado = mysqli_query($conectar, $consulta);
 </body>
 
 <script>
-     document.getElementById("menu").style.display="none";//oculto el detalle del menu
+    //  document.getElementById("menu").style.display="none";//oculto el detalle del menu
      $(document).ready(function () {
         tablaInf = $("#tablaInf").DataTable({
             "order": [[0, "desc"]],
