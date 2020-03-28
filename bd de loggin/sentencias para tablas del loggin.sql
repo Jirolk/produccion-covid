@@ -4,6 +4,9 @@
 -- flush privileges;
 USE covid19;
 
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS roles;
+
 CREATE TABLE roles(
 	Id_rol		INT AUTO_INCREMENT PRIMARY KEY,
 	Rol 		VARCHAR(15)
