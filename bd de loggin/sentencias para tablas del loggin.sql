@@ -6,7 +6,7 @@ USE covid19;
 
 CREATE TABLE roles(
 	Id_rol		INT AUTO_INCREMENT PRIMARY KEY,
-	Rol 		VARCHAR(10)
+	Rol 		VARCHAR(15)
 );
 
 CREATE TABLE users(

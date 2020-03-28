@@ -87,10 +87,10 @@ $resultado = mysqli_query($conectar, $consulta);
             <h2 class="text-primary text-center mt-3"><b>Tabla de Seguimientos</b></h2>
             <p class="text-center mt-3"><b>Observación:</b> Solo el primer registro se podrá modificar o eliminar. Sea atento a la hora de ir cargando los datos.</p><hr>
                     <!-- boton de cerrar cesion -->
-            <div class="card shadow text-dark bg-light mb-4">
-            <div class="card shadow text-dark bg-light mb-4">
+            <!-- <div class="card shadow text-dark bg-light mb-4"> -->
+            <!-- <div class="card shadow text-dark bg-light mb-4">
                 <button type="button" class="btn btn-mg btn-primary btn-block" onclick="window.location='/produccion-covid/cerrarSesion.php'" name="button">CERRAR SESION</button>
-            </div>
+            </div> -->
 
             <?php require_once "tablaInfectado.php"; ?>
         <!-- </div> -->
@@ -148,11 +148,25 @@ $resultado = mysqli_query($conectar, $consulta);
         </div>
     </div>
 
-
 </body>
 
 <script>
-    //  document.getElementById("menu").style.display="none";//oculto el detalle del menu
+     <?php
+            if(!isset($_SESSION)){
+            session_start();
+        }
+    ?>
+        var usuario = "<?php if (isset($_SESSION['nombreUsuario'])){
+                                   echo $_SESSION['nombreUsuario']." [".$_SESSION['nivelUsuario']."]";
+                              }?>";
+        // alert(usuValido);
+        // verificarSesion(usuValido);
+        if(usuValido != "si"){
+            location.href="administracion.php";
+        }
+    $(menu).empty() // vascia los elementos del menu en vez de ocultar el div
+    document.getElementById("menu").innerHTML = "<div id='container'> <div class='card-md' style='position:absolute; right:0; bottom:0;'><a class='fa fa-user'><label>&nbspUsuario:&nbsp&nbsp"+usuario+"</label></a><br><i class='fa fa-power-off' onclick='window.location=\"/produccion-covid/cerrarSesion.php\"' style='cursor:pointer'><a  onclick='window.location='/produccion-covid/cerrarSesion.php'>&nbspCerrar sesión</a></i></div></div>";
+   
      $(document).ready(function () {
         tablaInf = $("#tablaInf").DataTable({
             "order": [[0, "desc"]],
