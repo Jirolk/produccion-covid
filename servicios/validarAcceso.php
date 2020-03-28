@@ -24,7 +24,7 @@ if ($user == null || $user == "") {
         foreach ($resultado as $row) {
             $nombre   = $row['Nick'];
             $rol      = $row['Rol'];
-            $paswd    = $rwo['Passwd'];
+            $paswd    = $row['Passwd'];
             $Id_user  = $row['Id_usuario'];
             $estado   = $row['Estado'];
         }
