@@ -190,7 +190,7 @@ $resultado = mysqli_query($conectar, $consulta);
 	  var usuario = "<?php if (isset($_SESSION['nombreUsuario'])){
                                    echo $_SESSION['nombreUsuario']." [".$_SESSION['nivelUsuario']."]";
                               }?>";
-        // alert(usuValido);
+        alert(usuValido);
         // verificarSesion(usuValido);
         if(usuValido != "si"){
             location.href="administracion.php";
